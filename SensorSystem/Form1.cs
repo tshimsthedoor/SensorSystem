@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SensorSystem
@@ -15,6 +9,18 @@ namespace SensorSystem
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=SensorSystem;Integrated Security=True;";
+            string sqlQuery = "INSERT INTO SENSOR(SensorName, SensorType) VALUES (" + "'" + txtSensorName.Text + "'" + "," + "'" + txtSensorType.Text + "'" + ")";
+
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand sc = new SqlCommand(sqlQuery, con);
+            sc.ExecuteNonQuery();
+            con.Close();
         }
     }
 }
