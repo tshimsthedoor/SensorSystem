@@ -22,7 +22,7 @@ namespace SensorSystem
                 SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("SaveSensor1", con)
+                SqlCommand cmd = new SqlCommand("SaveSensor", con)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
