@@ -33,7 +33,7 @@ namespace SensorSystem
             this.lblSensorType = new System.Windows.Forms.Label();
             this.txtSensorName = new System.Windows.Forms.TextBox();
             this.txtSensorType = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblSensorName
@@ -68,22 +68,22 @@ namespace SensorSystem
             this.txtSensorType.Size = new System.Drawing.Size(356, 22);
             this.txtSensorType.TabIndex = 3;
             // 
-            // btnSave
+            // BtnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(260, 176);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(113, 38);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.BtnSave.Location = new System.Drawing.Point(260, 176);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(113, 38);
+            this.BtnSave.TabIndex = 4;
+            this.BtnSave.Text = "Save";
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 243);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.txtSensorType);
             this.Controls.Add(this.txtSensorName);
             this.Controls.Add(this.lblSensorType);
@@ -101,7 +101,7 @@ namespace SensorSystem
         private System.Windows.Forms.Label lblSensorType;
         private System.Windows.Forms.TextBox txtSensorName;
         private System.Windows.Forms.TextBox txtSensorType;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button BtnSave;
     }
 }
 
