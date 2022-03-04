@@ -16,23 +16,33 @@ namespace SensorSystem
         private void BtnSave_Click(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnectionString"].ConnectionString;
-           
-            SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
 
-            SqlCommand cmd = new SqlCommand("SaveSensor", con)
+            try
             {
-                CommandType = CommandType.StoredProcedure
-            };
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Open();
 
-            string sensorName = txtSensorName.Text;
-            string sensorType = txtSensorType.Text;
+                SqlCommand cmd = new SqlCommand("SaveSensor1", con)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
 
-            cmd.Parameters.Add(new SqlParameter("@SensorName", sensorName));
-            cmd.Parameters.Add(new SqlParameter("@SensorType", sensorType));
+                string sensorName = txtSensorName.Text;
+                string sensorType = txtSensorType.Text;
+
+                cmd.Parameters.Add(new SqlParameter("@SensorName", sensorName));
+                cmd.Parameters.Add(new SqlParameter("@SensorType", sensorType));
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error when inserting data into the database");
+            }
            
-            cmd.ExecuteNonQuery();
-            con.Close();
+            
         }
     }
 }

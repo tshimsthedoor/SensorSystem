@@ -68,15 +68,15 @@ namespace SensorSystem
             this.txtSensorType.Size = new System.Drawing.Size(356, 22);
             this.txtSensorType.TabIndex = 3;
             // 
-            // BtnSave
+            // btnSave
             // 
             this.BtnSave.Location = new System.Drawing.Point(260, 176);
-            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Name = "btnSave";
             this.BtnSave.Size = new System.Drawing.Size(113, 38);
             this.BtnSave.TabIndex = 4;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = true;
-            this.BtnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // Form1
             // 
