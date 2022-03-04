@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -13,7 +14,7 @@ namespace SensorSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=SensorSystem;Integrated Security=True;";
+            string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnectionString"].ConnectionString;
             string sqlQuery = "INSERT INTO SENSOR(SensorName, SensorType) VALUES (" + "'" + txtSensorName.Text + "'" + "," + "'" + txtSensorType.Text + "'" + ")";
 
             SqlConnection con = new SqlConnection(connectionString);
