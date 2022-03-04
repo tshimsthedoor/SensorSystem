@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -15,24 +16,21 @@ namespace SensorSystem
         private void btnSave_Click(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnectionString"].ConnectionString;
-            string sqlQuery = "INSERT INTO SENSOR(SensorName, SensorType) VALUES (@sensorname, @sensortype)";
-
+           
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand cmd = new SqlCommand(sqlQuery, con);
 
-            var sensorNameParameter = new SqlParameter("sensorname", System.Data.SqlDbType.VarChar)
+            SqlCommand cmd = new SqlCommand("SaveSensor", con)
             {
-                Value = txtSensorName.Text
+                CommandType = CommandType.StoredProcedure
             };
-            cmd.Parameters.Add(sensorNameParameter);
 
-            var sensorTypeParameter = new SqlParameter("sensortype", System.Data.SqlDbType.VarChar)
-            {
-                Value = txtSensorType.Text
-            };
-            cmd.Parameters.Add(sensorTypeParameter);
+            string sensorName = txtSensorName.Text;
+            string sensorType = txtSensorType.Text;
 
+            cmd.Parameters.Add(new SqlParameter("@SensorName", sensorName));
+            cmd.Parameters.Add(new SqlParameter("@SensorType", sensorType));
+           
             cmd.ExecuteNonQuery();
             con.Close();
         }
